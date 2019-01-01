@@ -624,21 +624,32 @@ body.offcanvas .colorlib-nav-toggle {
   font-weight: 500;
 }
 
+
 .hire {
   padding: 2em;
-  background: #f9bf3f;
+  background: #2c98f0;
 }
 
 .hire h2 {
   line-height: 1.5;
+  color:#fff;
 }
 
 .hire .btn-hire {
   color: #000;
   text-transform: uppercase;
   letter-spacing: 1px;
-  bordeR: 1px solid #000;
-  padding: 2px 10px;
+  background: #fff;
+  border: 1px solid #fff;
+  border-radius: 3px;
+  padding: 5px 10px;
+  transition: all 0.5s ease-in-out;
+}
+
+.hire .btn-hire:hover{
+  background:#000;
+  border: 1px solid #000;
+  color:#fff;
 }
 
 .fancy-collapse-panel .panel-default>.panel-heading {
@@ -818,12 +829,13 @@ body.offcanvas .colorlib-nav-toggle {
   margin-left: -9px;
 }
 
-.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label p+p {
+.timeline-centered .timeline-entry .timeline-entry-inner .timeline-label p {
   margin-top: 15px;
 }
 
 .timeline-centered .timeline-entry .timeline-entry-inner .timeline-label h2 {
   font-size: 20px;
+  margin-bottom: 5px;
   font-family: "Quicksand", Arial, sans-serif;
   font-weight: 500;
 }
@@ -2029,4 +2041,11 @@ body.offcanvas .colorlib-nav-toggle {
 
 .js .animate-box {
   opacity: 0;
+}
+
+.about-desc p{
+  font-size:1.05em;
+}
+.about-desc p strong{
+  font-size:1.05em;
 }

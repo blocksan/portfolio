@@ -85,14 +85,14 @@
 							}
 
 							el.removeClass('item-animate');
-						},  k * 200, 'easeInOutExpo' );
+						},  k * 20, 'easeInOutExpo' );
 					});
 					
-				}, 100);
+				}, 50);
 				
 			}
 
-		} , { offset: '85%' } );
+		} , { offset: '95%' } );
 	};
 
 
@@ -164,6 +164,28 @@
 		    event.preventDefault();
 		    return false;
 		});
+
+		$('#hire a:not([class="external"])').click(function(event){
+			var section = $(this).data('nav-section'),
+				navbar = $('#hire');
+
+				if ( $('[data-section="' + section + '"]').length ) {
+			    	$('html, body').animate({
+			        	scrollTop: $('[data-section="' + section + '"]').offset().top - 55
+			    	}, 500);
+			   }
+
+		    if ( navbar.is(':visible')) {
+		    	navbar.removeClass('in');
+		    	navbar.attr('aria-expanded', 'false');
+		    	$('.js-colorlib-nav-toggle').removeClass('active');
+		    }
+
+		    event.preventDefault();
+		    return false;
+		});
+
+		
 
 
 	};
