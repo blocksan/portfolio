@@ -10,7 +10,7 @@ app.get('/', function(req, res){
     res.render('index')
 })
 app.get('/api/download/cv', function(req, res){
-    var filePath = path.join(__dirname, 'app/source/sandeepghosh.pdf');
+    var filePath = path.join(__dirname, 'app/source/Sandeep_Ghosh_SSE.pdf');
     var fileName = "sandeepghosh.pdf"; // file name 
     res.download(filePath, fileName);
 })
