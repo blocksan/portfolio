@@ -2,7 +2,7 @@
 var form_id_js = 'contact-form';
 
 var data_js = {
-  access_token: '6zyvooe1p66dj1dzws9h9wg1',
+  access_token: 'wn547flbcis283pmviuoew0f',
 };
 
 function reset() {
