@@ -1,7 +1,7 @@
 //update this with your js_form selector
-var form_id_js = 'contact-form';
+let form_id_js = 'contact-form';
 
-var data_js = {
+let data_js = {
   access_token: 'wn547flbcis283pmviuoew0f',
 };
 
@@ -30,12 +30,12 @@ function js_onError(error) {
   document.getElementById('mail-response-error').style.display = 'block';
 }
 
-var sendButton = document.getElementById('submit');
+let sendButton = document.getElementById('submit');
 
 function js_send() {
   sendButton.value = 'Sending…';
   sendButton.disabled = true;
-  var request = new XMLHttpRequest();
+  let request = new XMLHttpRequest();
   request.onreadystatechange = function () {
     if (request.readyState == 4 && request.status == 200) {
       js_onSuccess();
@@ -44,24 +44,31 @@ function js_send() {
     }
   };
 
-  var subject = document.querySelector(
+  let subject = document.querySelector(
     '#' + form_id_js + " [name='subject']"
   ).value;
-  var emailMessage =
-    'Message:' +
-    document.querySelector('#' + form_id_js + " [name='contact-message']")
-      .value;
-  var name =
-    'Name:' +
-    document.querySelector('#' + form_id_js + " [name='contact-name']").value;
-  var contactNo =
-    'Contact No:' +
-    document.querySelector('#' + form_id_js + " [name='contact-phone']").value;
-  var contactEmail =
-    'Contact Email:' +
-    document.querySelector('#' + form_id_js + " [name='contact-email']").value;
+  let msgBody = document.querySelector(
+    '#' + form_id_js + " [name='contact-message']"
+  ).value;
+  let emailMessage = 'Message:' + msgBody;
+  let nameBody = document.querySelector(
+    '#' + form_id_js + " [name='contact-name']"
+  ).value;
+  let name = 'Name:' + nameBody;
+  let phoneBody = document.querySelector(
+    '#' + form_id_js + " [name='contact-phone']"
+  ).value;
+  let contactNo = 'Contact No:' + phoneBody;
+  let emailBody = document.querySelector(
+    '#' + form_id_js + " [name='contact-email']"
+  ).value;
+  let contactEmail = 'Contact Email:' + emailBody;
 
-  var message = `
+  if (!subject || !msgBody || !emailBody || !nameBody || !phoneBody) {
+    document.getElementById('mail-response-error').innerHTML =
+      'Please fill all the fields.';
+  }
+  let message = `
   ${name}
   ${contactNo}
   ${contactEmail}
@@ -69,7 +76,7 @@ function js_send() {
   `;
   data_js['subject'] = subject;
   data_js['text'] = message;
-  var params = toParams(data_js);
+  let params = toParams(data_js);
 
   request.open('POST', 'https://postmail.invotes.com/send', true);
   request.setRequestHeader('Content-type', 'application/x-www-form-urlencoded');
@@ -82,8 +89,8 @@ function js_send() {
 sendButton.onclick = js_send;
 
 function toParams(data_js) {
-  var form_data = [];
-  for (var key in data_js) {
+  let form_data = [];
+  for (let key in data_js) {
     form_data.push(
       encodeURIComponent(key) + '=' + encodeURIComponent(data_js[key])
     );
@@ -92,7 +99,7 @@ function toParams(data_js) {
   return form_data.join('&');
 }
 
-var js_form = document.getElementById(form_id_js);
+let js_form = document.getElementById(form_id_js);
 js_form.addEventListener('submit', function (e) {
   e.preventDefault();
 });

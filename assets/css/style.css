@@ -20122,3 +20122,18 @@ body.white-version {
   display: flex;
   align-items: center;
 }
+
+.badge {
+  position: absolute;
+  top: -5vh;
+  right: -5vw;
+  z-index: 50;
+}
+
+@media (max-width: 768px) {
+  .badge {
+    height: 250px;
+    width: 250px;
+    right: -15vw;
+  }
+}
