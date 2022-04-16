@@ -20125,9 +20125,9 @@ body.white-version {
 
 .badge {
   position: absolute;
-  top: -5vh;
-  right: -5vw;
+  top: -15vh;
   z-index: 50;
+  right: -8vw;
 }
 
 @media (max-width: 768px) {
